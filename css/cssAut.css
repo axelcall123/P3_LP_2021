@@ -1,0 +1,24 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+	text-align: left;
+}
+.cont{
+	background-color: rgb(202, 228, 192);
+}
+.Titulo{
+	margin: 50px 0px 0px 0px;
+	font-family: 'Abril Fatface', cursive;	
+	font-size: 27px;
+}
+.txt{
+	margin: 10px 0px 0px 0px;
+	font-family: 'Glegoo', serif;
+	font-size: 16px;
+}
+img{
+	margin: 40px 0px 0px 0px;
+}
+

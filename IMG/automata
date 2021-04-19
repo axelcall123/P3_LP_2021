@@ -1,0 +1,13 @@
+// SI
+digraph {
+	graph [rankdir=LR]
+	I [label=i]
+	P [label=p]
+	Q [label=q]
+	F [label=f]
+	I -> P [label="ε,ε;Ω"]
+	P -> Q [label="ε,ε;S"]
+	Q -> F [label="ε,Ω;ε"]
+	Q:n -> Q:n [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">ε,S;A</font></TD></TR><TR><TD><font color="black">ε,C;z C</font></TD></TR><TR><TD><font color="black">ε,A;a A a</font></TD></TR><TR><TD><font color="black">ε,A;B</font></TD></TR><TR><TD><font color="black">ε,B;b B b</font></TD></TR><TR><TD><font color="black">ε,B;C</font></TD></TR><TR><TD><font color="black">ε,C;z</font></TD></TR><TR><TD><font color="black">ε,C;b K b</font></TD></TR><TR><TD><font color="black">ε,K;d</font></TD></TR><TR><TD><font color="black">ε,K;f</font></TD></TR></TABLE>>]
+	Q:s -> Q:s [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">a,a;ε</font></TD></TR><TR><TD><font color="black">b,b;ε</font></TD></TR><TR><TD><font color="black">z,z;ε</font></TD></TR><TR><TD><font color="black">d,d;ε</font></TD></TR><TR><TD><font color="black">f,f;ε</font></TD></TR></TABLE>>]
+}

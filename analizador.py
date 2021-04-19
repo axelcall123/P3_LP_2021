@@ -1,11 +1,13 @@
-N_Terminales=[]
-Terminales=[]
-N_Terminales_I=[]
+
 def analizador(texto):
+    N_Terminales=[]
+    Terminales=[]
+    N_Terminales_I=[]
     unir=''
     state=-1
     conteoG=1
     contTxt=0
+    Nombre_gramatica=""
     for txt in texto:
         contTxt+=1      
         if state==-1:
@@ -19,7 +21,7 @@ def analizador(texto):
             if txt!="\n":
                 unir=unir+txt
             else:
-                print("Nombre de la gramática tipo 2",unir)
+                Nombre_gramatica=unir
                 unir=""
                 state=1
         elif state==1:
@@ -63,15 +65,15 @@ def analizador(texto):
             if contTxt<len(texto):
                 unir=unir+txt
             else:
-                print(N_Terminales,Terminales,N_Terminales_I)
+                #print(N_Terminales,Terminales,N_Terminales_I)
                 #print(unir,"TXT")    
-                de_or(unir)
+                return de_or(unir,Nombre_gramatica,N_Terminales,Terminales,N_Terminales_I)
+                
 
-def de_or(texto):#[[[S],[aB cS]],[]]
-    unir=""
+def de_or(texto,Nombre,NT,T,NTI):#[[[S],[aB cS]],[]]
     iz=""#PROUCCION IZQUIERDA
     de=""#PRODUCCION DERECHA
-    txtProdu=""
+    cont=0#llego al final del txt
     state=0
     array_producciones=[]
     for txt in texto:
@@ -98,32 +100,54 @@ def de_or(texto):#[[[S],[aB cS]],[]]
             if txt!="\n":
                 de=de+txt
             elif txt=="\n":
-                array_producciones.append([iz,de])
+                array_producciones.append([iz.replace(' ',''),de])#PRODUCCION IZQUIERDA Y DERECHA
                 iz=""
                 de=""
                 state=0
 
-    # print(array_producciones)
-    # lineas=texto.split('\n')
-    # for a in range(len(lineas)):
-    #         if lineas[a]=='':
-    #             lineas.pop(a)
-    #             a=a-1
-
-        
+            if cont==len(texto)-1:
+                array_producciones.append([iz.replace(' ',''),de])
+        cont+=1
     
+    contT=0#CONETO DE TERMINALES
+    contNt=0#CONETO DE NO TERMINALES
+    regular=True#SI ES UNA EXPRESION NO REGULAR
+    for a in range(len(array_producciones)):#LINEAS DE PRODUCCION [S,0 A]
+        T_NT=array_producciones[a][1].split(' ')#[0,A]
+        for b in range(len(T_NT)):#SEPARA T, NT
+            for c in range(len(T)):#CUENTA LOS TERMINALES
+                if T[c]==T_NT[b]:
+                    contT+=1
+            for c in range(len(NT)):#CUETNA LOS NO TERMINALES
+                if NT[c]==T_NT[b]:
+                    contNt+=1
+        if contT>1 or contNt>1:#NO REGULAR
+            regular=False
+            break
+        #print(array_producciones[a][1],"=  T:",contT,"NT:",contNt)
+        contT=0
+        contNt=0
+
+            #print('pro',T_NT[b])
+            
+    #NO SIRVE AHORA
+    # lineas=texto.split('\n')  
     # for lin in lineas:#[A,1 B]
     #     produccion=lin.split("->")
-    #     array_producciones.append(produccion)
-
-    for array in array_producciones:
-        if unir!=array[0]:#SI LA OPCION DIFERENTE DE: A-> ##
-            unir=array[0]
-            txtProdu=txtProdu+array[0]+"->"+array[1]+"\n"
-        else:#SI NO:  |##
-            for a in range(len(array[0])):#AGREGA EL TAMAÑO DE ESPACIOS DEL NT
-                txtProdu=txtProdu+" "
-            txtProdu=txtProdu+"  |"+array[1]+"\n"
-
-    print(txtProdu)
+    #     array_producciones.append(produccion)d
+    
+    #imprime los S->a
+    #print(array_producciones)
+        #[nombre,no_terminales,terminales,no_terminal_ini,producciones]
+    array_salida=[]
+    if regular==False:
+        array_salida.append(Nombre)
+        array_salida.append(NT)
+        array_salida.append(T)
+        array_salida.append(NTI)
+        array_salida.append(array_producciones)
+        return array_salida
+    else:
+        print('ES UNA EXPRESION REGULAR:', Nombre)
+        return
 

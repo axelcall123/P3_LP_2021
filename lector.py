@@ -10,8 +10,11 @@ def leer():
         unir=unir+linea
 
     gramatica=unir.split("*")
+    array_salida=[]
     for array in gramatica:
         #print(array,"evaluar")
-        analizador.analizador(array)
-
-leer()
+        #array_entrada=analizador.analizador(array)
+        array_entrada=analizador.analizador(array)
+        if array_entrada!=None:
+            array_salida.append(array_entrada)
+    return array_salida
