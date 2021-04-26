@@ -7,4 +7,4 @@ def table(array):
     array_producciones=array[4]
     #print(array_producciones)
     #ordenar por prioridad de terminaels
-    ordenarP.ordenar(array_producciones,NT)
+    ordenarP.ordenar(array_producciones,NT,T)

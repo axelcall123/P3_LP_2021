@@ -1,5 +1,5 @@
 Grm1
-S,A,B,C,K;a,b,z,d,f;S
+S,A,B,C;a,b,z,d;S
 S->A
 A->a A a
 A->B
