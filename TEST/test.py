@@ -36,37 +36,8 @@ def grap():
     dot.render('PDF/test', view=True)
 #TESTEO---------------------
 #DERECHA,IZQUIERDA,T_NT,POSICION,LIMITE
-def ver():
-    array=[
-            ['S','A','NT',0],
-            ['A','a A a','T;NT;T',1],
-            ['A','B','NT',2],
-            ['B','b B b','T;NT;T',3],
-            ['B','C','NT',4],
-            ['C','z C','T;NT',5],
-            ['C','z','T',6]
-        ]
-    return array
 
-def ver2():
-    array=[
-            #DE   IZ  T|NT ID POS LIMITE
-            ['ε','S','A'],
-            ['ε','A','0'],
-            ['ε','A','0 B 0'],
-            ['ε','A','0 C 0'],
-            ['ε','B','1','T'],
-            ['ε','B','1 D 1'],
-            ['ε','C','2'],
-            ['ε','C','2 E 2'],
-            ['ε','E','3'],
-            ['0','0','ε'],
-            ['1','1','ε'],
-            ['2','2','ε'],
-            ['3','3','ε']
-            
-        ]
-    return array
+
 
 def asd():
     NT=['S','A','B','C']
@@ -83,7 +54,7 @@ def asd():
         txtA.append(t)
 
     
-    recursivox2('S',txtA,[],txtV,producciones,0,-1)
+    #recursivox2('S',txtA,[],txtV,producciones,0,-1)
 
 def funcion():
     array=['3', '2', '0']
@@ -129,8 +100,10 @@ def recurisvo(a,pIzquierda,txt):
                 #DOCUMENTACION EN UN IMG
                 #original   ,[0,2,3,2,0]     ,S->A->B->C,posicion ,S->,[[1 D 1 0,[T NT T T]]]
 def recursivox2(busqueda,txtArray,pila,txtAyuda,producciones,n,ID):
-    
-    if n<len(producciones)-1:
+    if len(txtArray)==0:
+        print('SIPI')
+        return
+    elif n<len(producciones)-1:
         sustitucion=producciones[n][2].split(' ')
         if busqueda==producciones[n][1]:#BUSCO EN LA POSICION A[1]
             if producciones[n][2]!='ε':#PUDO SUSTITUIR LA PRUDCCIONES
@@ -165,7 +138,8 @@ def recursivox2(busqueda,txtArray,pila,txtAyuda,producciones,n,ID):
                         return
                 else:#SI NO ES IGUAL ELMINA ESA PROUDCCION Y VUELVO A COMENZAR
                     print('!E:DIF 8426',busqueda,txtArray,pila,txtAyuda,producciones[n],n,ID)
-                    producciones.pop(ID)#***************************************************DELETE
+                    if ID!=-1:
+                        producciones.pop(ID)#***************************************************DELETE
                     print('/*/*/*/*/*/*/*/*',producciones)
                     nuevo=producciones
                     tamaño=len(txtAyuda)
@@ -180,7 +154,7 @@ def recursivox2(busqueda,txtArray,pila,txtAyuda,producciones,n,ID):
             print('NEXT->: ',busqueda,txtArray,pila,txtAyuda,producciones[n],n,ID)
             recursivox2(busqueda,txtArray,pila,txtAyuda,producciones,n+1,ID)
     else:
-        print('FIN->: ',busqueda,txtArray,pila,txtAyuda,producciones[n],n,ID)
+        print('FIN->: ',busqueda,txtArray,pila,txtAyuda,producciones,n,ID)
         for a in range(len(producciones)):#BUSCAR PARA ELMINAR PRODUCCION QUE NO ENCUENTRO CARACTER POR HABERLO ELMINADO
             if producciones[a][0]=='ε':
                 derecha=producciones[a][2].split(' ')
@@ -191,7 +165,7 @@ def recursivox2(busqueda,txtArray,pila,txtAyuda,producciones,n,ID):
                         tamaño=len(txtAyuda)
                         for num in range(tamaño):#ERROR POR EL CUAL SE QUEDA SIN EL NUMERO U ALGO ASIJLSDA FJSKDALFJSDKL FJDSLKFJSKLADJFKSDFJSDKLFJSDKLFJKLÑ
                             txtArray.insert(0,txtAyuda.pop(0))
-                        print('S',txtArray,[],txtAyuda,nuevo,0,-1)
+                        print('S:ELMINAR EN LA POSICION XD',a,b,txtArray,[],txtAyuda,nuevo,0,-1)
                         #return
                         recursivox2('S',txtArray,[],txtAyuda,nuevo,0,-1)
 
