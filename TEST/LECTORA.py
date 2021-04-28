@@ -18,22 +18,6 @@ def ver2():
             
         ]
     return array
-def ori():
-    array=[
-            [1,'ε','S','A','NT'],
-            [2,'ε','A','B','NT'],
-            [3,'ε','A','a A a','T;NT;T'],
-            [4,'ε','B','C','NT'],
-            [5,'ε','B','b B b','T;NT;T'],
-            [6,'ε','C','z C','T'],
-            [7,'ε','C','z','T;NT'],
-            [9,'a','a','ε','T'],
-            [10,'b','b','ε','T'],
-            [11,'c','c','ε','T'],
-            [12,'z','z','ε','T']
-        ]
-    return array
-
 def ver2M():
     array=[
             #DE   IZ  T|NT ID POS LIMITE
@@ -56,9 +40,9 @@ def ver2M():
     return array
 def funcion():
     #txt='02320'
-    txt='abzba'
+    txt='02320'
     #produc=ver2()
-    produc=ori()
+    produc=ver2()
     A=[]
     for a in txt:
         A.append(a)
@@ -72,14 +56,16 @@ def funcion():
     
             #buscar,arrayTxt,pila,ayudaTxt,camino,produccion,repetir,posicion 
            #(S    ,02320   ,[]  ,{}      ,()    ,[]         ,S      ,100)
-    
-    buscar('S'    ,A      ,['#']   ,[]      ,[]    ,produc     ,False    ,0)#INICIO
+    try:
+        buscar('S'    ,A      ,['#']   ,[]      ,[]    ,produc     ,False    ,0)#INICIO
+    except:
+        print("DEMASIADAS ITERACIONES")
     #buscar('S'    ,txtA      ,pila   ,txtAH      ,camino    ,produc2     ,'N'    ,9)
-
 def buscar(search,arrayTxt,pila,ayudarTxt,camino,producciones,repite,posicion):
     
     txt=''
     n=posicion
+
     if n<len(producciones):
 
         derecha=producciones[n][3].split(' ')
@@ -177,7 +163,6 @@ def buscar(search,arrayTxt,pila,ayudarTxt,camino,producciones,repite,posicion):
                         pId=len(producciones)+2
                         buscar('S',arrayTxt,['#'],[],camino,producciones,False,0)
                         break
-
 def test():
     a=[1,2,3,4]
     Kk=[]
