@@ -5,13 +5,13 @@ import tabla as tabla
 gramatica=[]
 def menu():
     print("""
-	SELECCIONA UNA OPCION
+	SELECCIONA UNA OPCION1
 	t1 - CARGAR ARCHIVO
 	t2 - INFORMACION GRAMATICA
 	t3 - GENERAR AUTOMATA
 	t4 - REPORTE DE RECORRIDO
-	t6 - REPORTE TABLA
-	t5 - SALIR
+	t5 - REPORTE TABLA
+	t6 - SALIR
 	""")
 
 while True:
@@ -20,16 +20,26 @@ while True:
 	if opcionMenu == '1':
 		gramatica=lector.leer()
 	elif opcionMenu == '2':
-		for array in gramatica:
-			gramatica_inf.info(array)
+		elegir = input('ELIGE LA POSICION DEL AUTOMATA >>')
+		if int(elegir)-1<len(gramatica):
+			gramatica_inf.info(gramatica[int(elegir)-1])
+		else:
+			print('SE EXCEDIO DEL LIMTE :"C')
 	elif opcionMenu == '3':
-		for array in gramatica:
-			automata_pila.automataHtml(array)
+		elegir = input('ELIGE LA POSICION DEL AUTOMATA >>')
+		if int(elegir)-1<len(gramatica):
+			automata_pila.automataHtml(gramatica[int(elegir)-1])
+		else:
+			print('SE EXCEDIO DEL LIMTE :"C')
 	elif opcionMenu == '4':
 		print()
 	elif opcionMenu == '5':
-		for array in gramatica:
-			tabla.table(array)
+		elegir = input('ELIGE LA POSICION DEL AUTOMATA >>')
+		if int(elegir)-1<len(gramatica):
+			palabra = input('ESCRIBA LA PALABRA EVALUADA >>')
+			tabla.table(gramatica[int(elegir)-1],palabra)
+		else:
+			print('SE EXCEDIO DEL LIMTE :"C')
 	elif opcionMenu == '6':
 		break
 	elif opcionMenu=='10':

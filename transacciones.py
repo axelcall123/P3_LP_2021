@@ -7,8 +7,9 @@ def transacciones(T,array,NTI):
     for term in T:
         arrayAB.append([['q',term,term],['q','ε']])
     tabla=[]
-    id=1
+    #id=1
     for array in arrayAB:
-        tabla.append([array[0][1],array[0][2],array[1][1],id])
-        id+=1
+        #tabla.append([array[0][1],array[0][2],array[1][1],id])
+        tabla.append([array[0][1],array[0][2],array[1][1]])
+        #id+=1
     return tabla

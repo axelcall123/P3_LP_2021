@@ -26,31 +26,32 @@ def ordenar(producciones,Nt,T):
                         #nT=len(Nt)+1
                     #DONDE 1=TErminal;-1?No terminal     
                                #S                    ,a W a              ,0|1    ,posicion
-                #ter_Nter=''
-                #derecha=producciones[nD][1].split(' ')
+                ter_Nter=''
+                derecha=producciones[nD][1].split(' ')
 
                 
-                # for b in range(len(derecha)):#PARA OBTENER EL a A a-> T NT T
-                #     for a in range(mayor):
-                #         if len(Nt)>a:#IF NO LLEGA AL LIMITE DEL NUMERO
-                #             if Nt[a]==derecha[b]:#PARA NO AGREGAR; FINAL
-                #                 if len(derecha)-1>b:
-                #                     ter_Nter=ter_Nter+'NT'+';'
-                #                 else:
-                #                     ter_Nter=ter_Nter+'NT' 
-                #                 break
-                #         if len(T)>a:#IF NO LLEGA AL LIMITE DEL NUMEOR
-                #             if T[a]==derecha[b]:
-                #                 if len(derecha)-1>b:#PARA NO AGREGAR; FINAL
-                #                     ter_Nter=ter_Nter+'T'+';'
-                #                 else:
-                #                     ter_Nter=ter_Nter+'T'
-                #                 break
+                for b in range(len(derecha)):#PARA OBTENER EL a A a-> T NT T
+                    for a in range(mayor):
+                        if len(Nt)>a:#IF NO LLEGA AL LIMITE DEL NUMERO
+                            if Nt[a]==derecha[b]:#PARA NO AGREGAR; FINAL
+                                if len(derecha)-1>b:
+                                    ter_Nter=ter_Nter+'NT'+';'
+                                else:
+                                    ter_Nter=ter_Nter+'NT' 
+                                break
+                        if len(T)>a:#IF NO LLEGA AL LIMITE DEL NUMEOR
+                            if T[a]==derecha[b]:
+                                if len(derecha)-1>b:#PARA NO AGREGAR; FINAL
+                                    ter_Nter=ter_Nter+'T'+';'
+                                else:
+                                    ter_Nter=ter_Nter+'T'
+                                break
                               
                 #print(producciones[nD][1],ter_Nter)
                                 #S                   ,a A a              ,veces, posicion, T NT T
-                produTemp.append([producciones[nD][0],producciones[nD][1],numero,posicion])
+                produTemp.append([producciones[nD][0],producciones[nD][1],numero,posicion,ter_Nter])
                 posicion+=1
+                #print(produTemp)
         #ORDNAR DE TERMINALES>NO TERMINALES
         array_uno=[]#AYUDA1
         array_dos=[]##AYUDA2
@@ -69,5 +70,6 @@ def ordenar(producciones,Nt,T):
             if produTemp!=None:
                                     #A   ,a A a,T NT T,Tamaño     , posicion
                 #array_salida.append([a[0],a[1],a[4],len(produTemp),a[3]])
-                array_salida.append([a[0]+':'+str(a[3]),a[1]])
-    print(array_salida)
+                array_salida.append([a[0],a[1],a[4]])
+    #print(array_salida,'*******1')
+    return array_salida

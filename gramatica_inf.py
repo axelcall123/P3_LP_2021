@@ -42,7 +42,11 @@ def info(array):
 
     print(txtProdu)
     print('Tiempo de espera')
+    elegir=''
     while True:
+        if elegir=='si':
+            return
         print("esperando____")
-        time.sleep(5) # espera en segundos
+        time.sleep(5)
+        elegir = input('QUIERE SALIR: si,no >>') # espera en segundos
     

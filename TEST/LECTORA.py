@@ -59,7 +59,7 @@ def funcion():
     try:
         buscar('S'    ,A      ,['#']   ,[]      ,[]    ,produc     ,False    ,0)#INICIO
     except:
-        print("DEMASIADAS ITERACIONES")
+        print("OCURRIO UN ERROR ")
     #buscar('S'    ,txtA      ,pila   ,txtAH      ,camino    ,produc2     ,'N'    ,9)
 def buscar(search,arrayTxt,pila,ayudarTxt,camino,producciones,repite,posicion):
     
