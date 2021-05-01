@@ -32,12 +32,17 @@ while True:
 		else:
 			print('SE EXCEDIO DEL LIMTE :"C')
 	elif opcionMenu == '4':
-		print()
+		elegir = input('ELIGE LA POSICION DEL AUTOMATA >>')
+		if int(elegir)-1<len(gramatica):
+			palabra = input('ESCRIBA LA PALABRA EVALUADA >>')
+			tabla.table(gramatica[int(elegir)-1],palabra,True)
+		else:
+			print('SE EXCEDIO DEL LIMTE :"C')
 	elif opcionMenu == '5':
 		elegir = input('ELIGE LA POSICION DEL AUTOMATA >>')
 		if int(elegir)-1<len(gramatica):
 			palabra = input('ESCRIBA LA PALABRA EVALUADA >>')
-			tabla.table(gramatica[int(elegir)-1],palabra)
+			tabla.table(gramatica[int(elegir)-1],palabra,False)
 		else:
 			print('SE EXCEDIO DEL LIMTE :"C')
 	elif opcionMenu == '6':

@@ -1,13 +1,27 @@
 // SI
 digraph {
 	graph [rankdir=LR]
-	I [label=i]
-	P [label=p]
-	Q [label=q]
-	F [label=f]
-	I -> P [label="ε,ε;Ω"]
-	P -> Q [label="ε,ε;S"]
-	Q -> F [label="ε,Ω;ε"]
-	Q:n -> Q:n [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">ε,S;A</font></TD></TR><TR><TD><font color="black">ε,A;a A a</font></TD></TR><TR><TD><font color="black">ε,A;B</font></TD></TR><TR><TD><font color="black">ε,B;b B b</font></TD></TR><TR><TD><font color="black">ε,B;C</font></TD></TR><TR><TD><font color="black">ε,C;z C</font></TD></TR><TR><TD><font color="black">ε,C;z</font></TD></TR></TABLE>>]
-	Q:s -> Q:s [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">a,a;ε</font></TD></TR><TR><TD><font color="black">b,b;ε</font></TD></TR><TR><TD><font color="black">z,z;ε</font></TD></TR></TABLE>>]
+	I [label=I fillcolor=yellow style=filled]
+	P [label=P]
+	Q [label=Q fixedsize=true height=1.5 width=1.5]
+	F [label=F peripheries=2]
+	I -> P [label=1]
+	P -> Q [label=2]
+	Q -> F [label=3]
+	Q:n -> Q:n [label=<<TABLE BORDER="0" CELLBORDER="0.1">
+    <TR><TD><font color="red">Ω</font></TD></TR>
+    <TR><TD><font color="black">2</font></TD></TR>
+    <TR><TD><font color="black">3</font></TD></TR>
+    <TR><TD><font color="black">4</font></TD></TR>
+    <TR><TD><font color="black">5</font></TD></TR>
+    <TR><TD><font color="black">6</font></TD></TR>
+    </TABLE>> color=red]
+	Q:s -> Q:s [label=<<TABLE BORDER="0" CELLBORDER="0.1">
+    <TR><TD><font color="black">a</font></TD></TR>
+    <TR><TD><font color="black">b</font></TD></TR>
+    <TR><TD><font color="black">c</font></TD></TR>
+    <TR><TD><font color="black">a</font></TD></TR>
+    <TR><TD><font color="black">b</font></TD></TR>
+    <TR><TD><font color="black">c</font></TD></TR>
+    </TABLE>> color=black constraint=false]
 }

@@ -1,25 +1,21 @@
 from graphviz import Digraph
 def grap():
-    lb1="""<
-    <TABLE BORDER="0" CELLBORDER="0.1">
+    lb1="""<<TABLE BORDER="0" CELLBORDER="0.1">
     <TR><TD><font color="red">Ω</font></TD></TR>
     <TR><TD><font color="black">2</font></TD></TR>
     <TR><TD><font color="black">3</font></TD></TR>
     <TR><TD><font color="black">4</font></TD></TR>
     <TR><TD><font color="black">5</font></TD></TR>
     <TR><TD><font color="black">6</font></TD></TR>
-    </TABLE>
-    >"""
-    lb2="""<
-    <TABLE BORDER="0" CELLBORDER="0.1">
+    </TABLE>>"""
+    lb2="""<<TABLE BORDER="0" CELLBORDER="0.1">
     <TR><TD><font color="black">a</font></TD></TR>
     <TR><TD><font color="black">b</font></TD></TR>
     <TR><TD><font color="black">c</font></TD></TR>
     <TR><TD><font color="black">a</font></TD></TR>
     <TR><TD><font color="black">b</font></TD></TR>
     <TR><TD><font color="black">c</font></TD></TR>
-    </TABLE>
-    >"""
+    </TABLE>>"""
     dot = Digraph(comment='SI',format='png')
     dot.graph_attr['rankdir'] = 'LR'
     dot.node('I', 'I',fillcolor='yellow',style='filled')
@@ -172,7 +168,7 @@ def recursivox2(busqueda,txtArray,pila,txtAyuda,producciones,n,ID):
                         
         #print('OJO:',busqueda,txtArray,pila,txtAyuda,n,ID)
         #
-asd()
+grap()
 #funcion()
 #DOUCMENTACION
 """
