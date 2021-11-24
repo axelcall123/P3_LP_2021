@@ -6,8 +6,8 @@ digraph {
 	Q [label=q]
 	F [label=f]
 	I -> P [label="ε,ε;Ω"]
-	P -> Q [label="ε,ε;S"]
+	P -> Q [label="ε,ε;A"]
 	Q -> F [label="ε,Ω;ε"]
-	Q:n -> Q:n [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">ε,S;A</font></TD></TR><TR><TD><font color="black">ε,A;0</font></TD></TR><TR><TD><font color="black">ε,A;0 B 0</font></TD></TR><TR><TD><font color="black">ε,A;0 C 0</font></TD></TR><TR><TD><font color="black">ε,B;1</font></TD></TR><TR><TD><font color="black">ε,B;1 D 1</font></TD></TR><TR><TD><font color="black">ε,C;2</font></TD></TR><TR><TD><font color="black">ε,C;2 E 2</font></TD></TR><TR><TD><font color="black">ε,E;3</font></TD></TR></TABLE>>]
-	Q:s -> Q:s [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">0,0;ε</font></TD></TR><TR><TD><font color="black">1,1;ε</font></TD></TR><TR><TD><font color="black">2,2;ε</font></TD></TR><TR><TD><font color="black">3,3;ε</font></TD></TR></TABLE>>]
+	Q:n -> Q:n [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">ε,A;B</font></TD></TR><TR><TD><font color="black">ε,B;( ( B ) )</font></TD></TR><TR><TD><font color="black">ε,B;1</font></TD></TR><TR><TD><font color="black">ε,B;0</font></TD></TR></TABLE>>]
+	Q:s -> Q:s [label=<<TABLE BORDER="0" CELLBORDER="0.1"><TR><TD><font color="black">(,(;ε</font></TD></TR><TR><TD><font color="black">),);ε</font></TD></TR><TR><TD><font color="black">0,0;ε</font></TD></TR><TR><TD><font color="black">1,1;ε</font></TD></TR></TABLE>>]
 }
